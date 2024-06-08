@@ -23,8 +23,6 @@ export interface Data {
   data: string; // hello world?
 }
 
-export interface Metadata2 {}
-
 export class tsnbSerializer implements vscode.NotebookSerializer {
   async deserializeNotebook(
     content: Uint8Array,
@@ -45,8 +43,8 @@ export class tsnbSerializer implements vscode.NotebookSerializer {
           item.language === "markdown"
             ? vscode.NotebookCellKind.Markup
             : vscode.NotebookCellKind.Code,
-          item.source.toString(),
-          item.language === "code" ? "typescript" : "markdown"
+          item.source,
+          item.language
         )
     );
 

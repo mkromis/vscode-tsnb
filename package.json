@@ -1,27 +1,37 @@
 {
-  "name": "code-tsnb",
-  "displayName": "code-tsnb",
-  "description": "code-typescript-notebook",
+  "name": "tsnb-notebook",
+  "displayName": "Typescript Notebook",
+  "description": "A Typescript notebook",
+  "preview": true,
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.80.0"
   },
+  "author": {
+    "name": "Mark Kromis"
+  },
+  "publisher": "mkromis",
   "keywords": [
-    "typescript",
-    "notebook",
-    "nodebook",
-    "notebookRenderer"
+    "tsnb",
+    "nodebook"
   ],
   "categories": [
-    "Other"
+    "Data Science",
+    "Programming Languages",
+    "Notebooks"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onNotebook:tsnb"
+  ],
   "main": "./out/extension/extension.js",
   "browser": "./out/extension/extension.web.js",
+  "extensionDependencies": [
+    "ms-toolsai.jupyter"
+  ],
   "contributes": {
     "notebooks": [
       {
-        "type": "tsnb",
+        "type": "tsnb-notebook",
         "displayName": "Typescript Notebook",
         "selector": [
           {
@@ -43,6 +53,7 @@
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
+    "build": "pnpm run compile",
     "compile": "webpack --mode production",
     "lint": "eslint src --ext ts",
     "watch": "webpack --mode development --watch",

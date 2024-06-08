@@ -7,7 +7,7 @@ import { tsnbSerializer } from './tsnbSerializer';
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-  vscode.workspace.registerNotebookSerializer("tsnb", new tsnbSerializer())
+  context.subscriptions.push(vscode.workspace.registerNotebookSerializer("tsnb-notebook", new tsnbSerializer()))
 }
 
 // This method is called when your extension is deactivated
