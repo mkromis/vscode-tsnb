@@ -4,9 +4,12 @@
   "description": "code-typescript-notebook",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.54.0"
+    "vscode": "^1.90.0"
   },
   "keywords": [
+    "typescript",
+    "notebook",
+    "nodebook",
     "notebookRenderer"
   ],
   "categories": [
@@ -16,6 +19,17 @@
   "main": "./out/extension/extension.js",
   "browser": "./out/extension/extension.web.js",
   "contributes": {
+    "notebooks": [
+      {
+        "type": "tsnb",
+        "displayName": "Typescript Notebook",
+        "selector": [
+          {
+            "filenamePattern": "*.tsnb"
+          }
+        ]
+      }
+    ],
     "notebookRenderer": [
       {
         "id": "code-tsnb",
